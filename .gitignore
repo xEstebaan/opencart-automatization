@@ -1,0 +1,58 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+wheels/
+pip-wheel-metadata/
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.env
+.venv
+env.bak/
+venv.bak/
+
+# Pytest
+.pytest_cache/
+pytestmark
+
+# Reports & Results
+reports/
+allure-results/
+allure-report/
+*.html
+*.xml
+
+# Screenshots
+screenshots/
+screen_*.png
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+logs/
+
+# Secrets
+.env
+.env.local
+secrets.py
+credentials.json
