@@ -2,7 +2,7 @@
 
 ---
 
-## TC-001 | [Autenticacion] | Validar cierre de sesión desde opción Logout
+## TC-010 | [Autenticacion] | Validar cierre de sesión desde opción Logout
 
 **Módulo:** Autenticación  
 **Prioridad:** Alta  
@@ -16,7 +16,7 @@ Verificar que el usuario autenticado puede cerrar sesión y que el sistema final
 ### Precondiciones
 
 - Usuario autenticado en OpenCart
-- Usuario ubicado en cualquier página con menú My Account
+- Usuario ubicado en cualquier página con menu
 
 ### Pasos
 
@@ -35,7 +35,7 @@ Verificar que el usuario autenticado puede cerrar sesión y que el sistema final
 
 ---
 
-## TC-002 | [Autenticacion] | Validar acceso a /wishlist sin sesión activa
+## TC-011 | [Autenticacion] | Validar acceso a /wishlist sin sesión activa
 
 **Módulo:** Autenticación  
 **Prioridad:** Alta  
