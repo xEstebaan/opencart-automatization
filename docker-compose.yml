@@ -1,0 +1,44 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: orangehrm_db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - orangehrm_network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  orangehrm:
+    image: orangehrm/orangehrm:5.7
+    container_name: orangehrm_app
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    environment:
+      ORANGEHRM_DATABASE_HOST: mysql
+      ORANGEHRM_DATABASE_PORT: 3306
+      ORANGEHRM_DATABASE_NAME: ${MYSQL_DATABASE}
+      ORANGEHRM_DATABASE_USER: ${MYSQL_USER}
+      ORANGEHRM_DATABASE_PASSWORD: ${MYSQL_PASSWORD}
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - orangehrm_network
+
+volumes:
+  mysql_data:
+
+networks:
+  orangehrm_network:
+    driver: bridge
